@@ -1,0 +1,10 @@
+To build:
+
+g++ -o ex g4ex.cpp -L/usr/local/lib -I/projects/polhemus/linux_sdk/g4track_lib_dist-0.0.2/include -lG4Track
+
+Before running - might need to do this:
+LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH
+
+Should be able to just run (without sudo)
+
