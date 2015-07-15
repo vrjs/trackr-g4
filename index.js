@@ -14,37 +14,36 @@ exports.make = function(THREE) {
         });
     }
     tracker = {
-        sensors : sensors,
-        poll: function() {
+         poll: function() {
             g4.poll(null);
         },
         add: function(obj, sensor) {
             sensor = sensor || 0
-            this.sensors[sensor].controlled.push(obj);
+            sensors[sensor].controlled.push(obj);
         },
         remove: function(obj, sensor) {
             sensor = sensor || 0
-            this.sensors[sensor].controlled.remove(obj);
+            sensors[sensor].controlled.remove(obj);
         },
         scale : function (sensor, scale) {
             if (scale === undefined ) {
-                return this.sensors[sensor].scale;
+                return sensors[sensor].scale;
             }
             else {
-                this.sensors[sensor].scale = scale;
+                sensors[sensor].scale = scale;
             }
         }, 
         offset : function (sensor, offset) {
             if (offset === undefined ) {
-                return this.sensors[sensor].offset;
+                return sensors[sensor].offset;
             }
             else {
-                this.sensors[sensor].offset = offset;
+                sensors[sensor].offset = offset;
             }
         },
         apply_poll: function(err, po_array) {
             for (var c = 0; c < 3; c++ ) {
-                sensor = this.sensors[c];
+                sensor = sensors[c];
                 for (var i = 0; i < sensor.controlled.length; i++) {
                     var euler = new THREE.Euler(po_array[c].ori.x, po_array[c].ori.y, po_array[c].ori.z, 'ZYX');
                     o = sensor.controlled[i];
