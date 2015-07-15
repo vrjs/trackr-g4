@@ -1,0 +1,29 @@
+{
+  "name": "vrjs-trackr-g4",
+  "version": "0.0.1",
+  "description": "polhemus g4 tracker for vrjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrjs/trackr-g4.git"
+  },
+  "keywords": [
+    "vrjs",
+    "polhemus",
+    "g4",
+    "trackr",
+    "tracker"
+  ],
+  "author": "Scott Frees",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vrjs/trackr-g4/issues"
+  },
+  "homepage": "https://github.com/vrjs/trackr-g4#readme",
+  "dependencies": {
+    "g4": "0.0.4"
+  }
+}
