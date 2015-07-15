@@ -10,11 +10,12 @@ exports.make = function(THREE) {
             position: new THREE.Vector3(0, 0, 0),
             orientation: new THREE.Quaternion(),
             scale: new THREE.Vector3(1, 1, 1), 
-            offset : new THREE.Vector3(0, 0, 0)
+            offset : new THREE.Vector3(0, 0, 0), 
+            post_process : function() {}
         });
     }
     tracker = {
-         poll: function() {
+        poll: function() {
             g4.poll(null);
         },
         add: function(obj, sensor) {
@@ -31,6 +32,14 @@ exports.make = function(THREE) {
             }
             else {
                 sensors[sensor].scale = scale;
+            }
+        }, 
+        post_process : function (sensor, callback) {
+            if (callback === undefined ) {
+                return sensors[sensor].post_process;
+            }
+            else {
+                sensors[sensor].post_process = callback;
             }
         }, 
         offset : function (sensor, offset) {
@@ -51,6 +60,7 @@ exports.make = function(THREE) {
                     o.position.y = po_array[c].pos.y * sensor.scale.y + sensor.offset.y;
                     o.position.z = po_array[c].pos.z * sensor.scale.z + sensor.offset.z;
                     o.quaternion.setFromEuler(euler);
+                    sensor.post_process();
                 }
             }
         }
