@@ -66,7 +66,6 @@ exports.make = function(THREE) {
         }
     }
 
-    requestAnimationFrame(trackr.poll);
     g4.initialize(tracker.apply_poll);
     return tracker;
 }

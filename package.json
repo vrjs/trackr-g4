@@ -1,6 +1,6 @@
 {
   "name": "vrjs-trackr-g4",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "polhemus g4 tracker for vrjs",
   "main": "index.js",
   "scripts": {
